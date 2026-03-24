@@ -1,5 +1,9 @@
-import express, { Application, Request, Response, NextFunction } from 'express';
+import express, { Application, Request, Response, NextFunction, RequestHandler } from 'express';
 import router from './routes';
+
+export function asyncHandler(fn: (req: Request, res: Response, next: NextFunction) => Promise<void>): RequestHandler {
+  return (req, res, next) => fn(req, res, next).catch(next);
+}
 
 const app: Application = express();
 
