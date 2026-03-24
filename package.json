@@ -7,7 +7,8 @@
     "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "start": "node dist/index.js",
-    "db:migrate": "node -r dotenv/config dist/db/migrate.js"
+    "db:migrate": "tsx src/db/migrate.ts",
+    "db:migrate:prod": "node -r dotenv/config dist/db/migrate.js"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
