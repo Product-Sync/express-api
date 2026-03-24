@@ -1,0 +1,22 @@
+version: 1
+
+apps:
+  - name: api
+    type: backend
+    runtime: node
+    framework: express
+    setup:
+      - npm run db:migrate
+    dev:
+      command: npm run dev
+      port: 3000
+    env:
+      NODE_ENV: development
+      DB_HOST: localhost
+      DB_PORT: 5432
+      DB_NAME: todo
+      DB_USER: samolabamiji
+      DB_PASSWORD: ""
+
+databases:
+  - type: postgres
